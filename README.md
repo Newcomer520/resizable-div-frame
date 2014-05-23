@@ -10,7 +10,7 @@ see the [example](https://rawgit.com/Newcomer520/resizable-div-frame/master/exam
 
 Dependencies
 ===================
-Angular, Jquery
+Angular, Jquery and the custom style(custom.css)
 
 I didn't remove the dependency of jquery at this moment. Maybe I will do it later.
 
