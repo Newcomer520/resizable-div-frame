@@ -1,9 +1,9 @@
 require.config({
-	baseUrl: '',
+	baseUrl: '/Newcomer520/resizable-div-frame/master/example/',
 	paths: {
 		'angular': 'vendor/angular/angular',
 		'sdiv': 'directive/sdiv',
-		'jquery': '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min'
+		'jquery': 'vendor/jquery/jquery'
 	},
 	shim: {
 		'sdiv': {
