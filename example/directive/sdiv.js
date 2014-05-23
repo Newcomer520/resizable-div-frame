@@ -1,4 +1,23 @@
-(function(window, angular){
+(function(window, angular, $){
+	/*$.fn.toggleSelection = function() {
+		var unselectable = this.attr('unselectable') || 'on',
+			userSelect,
+			selectstart;
+		if (unselectable == 'off') {
+			unselectable = 'on';
+			userSelect = 'none';
+			selectstart = false;
+		}
+		else {
+			unselectable = 'off';
+			userSelect = 'all';
+			selectstart = true;
+		}
+        return this
+                 .attr('unselectable', unselectable)
+                 .css('user-select', userSelect);
+            //     .on('selectstart', selectstart);
+    };*/
 	var drtvModuleName = 'ng-sdiv';
 
 	var templateModule = angular.module('templateMd', []);
@@ -70,7 +89,6 @@
 			restrict: 'E',
 			transclude: true,
 			templateUrl: 'template/sdivContainer.html',
-			//templateUrl: './scripts/directive/template/sdiv-container.html',
 			scope: {
 				directionWay: '@'
 			},
@@ -101,7 +119,7 @@
 								break;
 						}
 						scope.$watch('isMousedown', function(s) {
-							//$(document.body).toggleSelection();
+							$(document.body).toggleSelection();
 							if (!angular.isDefined(ctrl.currentMovingSdiv))
 								return false;
 							var resize = ctrl.currentMovingSdiv.resize;
@@ -116,7 +134,7 @@
 							//check the minimum width or height
 							var offsetX = e.clientX - resize.previous.x,
 							    offsetY = e.clientY - resize.previous.y
-							switch(attrs.direction) {
+							switch(direction) {
 								case 'vertical':
 									if ((resize.height > resize.height + offsetY && resize.height + offsetY < 50) || (nResize.height > nResize.height - offsetY && nResize.height - offsetY  < 50))
 										resize.isUndo = nResize.isUndo = true;
@@ -252,4 +270,4 @@
 		};
 	}
 })
-(window, window.angular);
+(window, window.angular, jQuery);
