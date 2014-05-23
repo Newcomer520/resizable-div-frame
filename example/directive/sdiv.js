@@ -1,5 +1,5 @@
 (function(window, angular, $){
-	/*$.fn.toggleSelection = function() {
+	$.fn.toggleSelection = function() {
 		var unselectable = this.attr('unselectable') || 'on',
 			userSelect,
 			selectstart;
@@ -13,11 +13,11 @@
 			userSelect = 'all';
 			selectstart = true;
 		}
-        return this
-                 .attr('unselectable', unselectable)
+        	return this
+        	 .attr('unselectable', unselectable)
                  .css('user-select', userSelect);
             //     .on('selectstart', selectstart);
-    };*/
+    	};
 	var drtvModuleName = 'ng-sdiv';
 
 	var templateModule = angular.module('templateMd', []);
