@@ -1,0 +1,138 @@
+@import "compass/css3";
+$resizebar-width: 7px;
+[ng-clock]
+{
+	display: none;
+}
+depboard
+{
+	box-sizing: border-box;
+	display: inline-block;
+	font-family:Helvetica;
+	letter-spacing:5px;
+	font-size: 10px;
+	text-align: left;
+	vertical-align: middle;
+	padding-left: 2em;
+	height: 3em;
+	line-height: 3em;
+	border: 1px solid #000;
+	@include border-radius(6px);
+	@include box-shadow(
+		rgba(black, 0.9) 0 5px 1px, 
+		rgba(255, 255, 255, 0.3) 0 0 1px inset, 
+		rgba(255, 255, 255, 1) 0 0 1px inset);
+	background: rgba(68, 68, 68, 1);
+	@include background(		
+		linear-gradient(top, rgba(20,20,20,1) 0%,rgba(40,40,40,1) 50%,rgba(20,20,20,1) 50.01%, rgba(70,70,70,1) 100%));
+	color: #eee;
+	text-shadow: 0 -2px 3px #000;
+
+	&:hover
+	{
+		cursor: pointer;
+
+		span
+		{
+			font-weight: bold;
+			-webkit-transform: rotateX(360deg);
+			-webkit-transition: all 1s;
+		}
+	}
+
+	span
+	{
+		display: inline-block;
+		text-align: center;
+		width: 3em;
+	}
+
+}
+
+.sdiv-container
+{
+	position: relative;
+	box-sizing: border-box;
+	overflow: hidden;
+	border: 1px solid #8e8e8e;
+	height: 100%;
+	.sdiv-container
+	{
+		border: none !important;
+	}
+
+	&.horizontal
+	{
+		> .sdiv
+		{
+			float: left;
+			padding-right: $resizebar-width;			
+			height: 100%;
+			box-sizing: border-box;
+
+			> .sdiv-resize-region
+			{				
+				cursor: col-resize;
+				right: 0px;
+				top: 0px;
+				width: $resizebar-width;
+				height: 100%;
+				
+			}
+
+			&.is-last-one
+			{
+				padding-right: 0px !important;
+			}
+		}
+	}
+
+	&.vertical
+	{
+		> .sdiv
+		{
+			padding-bottom: $resizebar-width;
+			width: 100%;	
+			box-sizing: border-box;
+			> .sdiv-resize-region
+			{
+				cursor: row-resize;
+				left: 0px;
+				bottom: 0px;
+				width: 100%;
+				height: $resizebar-width;
+			}
+			&.is-last-one
+			{
+				padding-bottom: 0px !important;
+			}
+		}
+		width: 100%;
+		border: 1px solid #8e8e8e;
+	}
+
+	&:after {
+    	content:'';
+    	display:block;
+    	clear: both;
+	}
+
+	
+}
+
+.sdiv
+{
+	box-sizing: border-box;
+	position: relative;	
+
+	> div:first-child
+	{
+		height: 100%;
+		overflow: auto;
+	}
+}
+.sdiv-resize-region
+{
+	position: absolute;
+	background: #8e8e8e;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
+		<link rel="stylesheet" href="stylesheets/custom.css">
+		<script src="vendor/requirejs/require.js" data-main="main-02.js"></script>
+	</head>
+	<body>
+		<h1>HRRRRRRRRRRRRRRRRRRRRRRR</h1>
+		<sdiv-container direction-way="horizontal" style="height:300px;width:1000px;margin-left:10px;">
+			<sdiv style="width:50%">
+				<div>spdiv1</div>
+				<div>spdiv1-2</div>
+			</sdiv>
+			<sdiv style="width:20%;">sdiv2sdiv2s</sdiv>
+			<sdiv style="width:10%">sdiv3</sdiv>
+			<sdiv style="width:20%;">
+				<sdiv-container direction-way="vertical" style="height:100%;width:100%;">
+					<sdiv style="height:50%">
+						<div>vertical 01</div>
+						<div>vertical 02</div>
+					</sdiv>
+					<sdiv style="height:30%;">vertical 03</sdiv>
+					<sdiv style="height:19%">vertical 05</sdiv>
+				</sdiv-container>
+			</sdiv>
+		</sdiv-container>		
+		<div style="width:100%;height:50px;">should be on the bottom</div>
+		<div class="container-fluid">
+			<div class="row" style="padding-left:5px;padding-right:5px;">
+
+				<sdiv-container direction-way="horizontal" style="height:150px;width: 97%">
+					<sdiv style="width:50%">
+						<div>spdiv1</div>
+						<div>spdiv1-2</div>
+					</sdiv>
+					<sdiv style="width:20%;">sdiv2sdiv2sdiv2sdiv2sdiv2sdiv2sdiv2s<br>div2sdiv2sdiv2sdiv2sdiv2sdiv2s<br>div2sdiv2sdiv2sdiv2sdiv2</sdiv>
+					<sdiv style="width:10%">sdiv3</sdiv>
+					<sdiv style="width:20%">sdiv5</sdiv>
+				</sdiv-container>				
+			</div>
+		</div>
+		
+	</body>
+</html>
