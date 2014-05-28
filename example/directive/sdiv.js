@@ -1,4 +1,4 @@
-(function(window, angular, $){
+﻿(function(window, angular, $){
 	$.fn.toggleSelection = function() {
 		var unselectable = this.attr('unselectable') || 'on',
 			userSelect,
@@ -13,11 +13,11 @@
 			userSelect = 'all';
 			selectstart = true;
 		}
-        	return this
-        	 .attr('unselectable', unselectable)
+        return this
+                 .attr('unselectable', unselectable)
                  .css('user-select', userSelect);
             //     .on('selectstart', selectstart);
-    	};
+    };
 	var drtvModuleName = 'ng-sdiv';
 
 	var templateModule = angular.module('templateMd', []);
@@ -35,7 +35,7 @@
 	}]);
 
 	angular.module(drtvModuleName, [templateModule.name])
-	//.controller('sdivCtrl', sdivCtrlFactory)
+	.controller('sdivCtrl', sdivCtrlFactory)
 	.directive('sdivContainer', sdivContainerFactory)
 	.directive('sdiv', sdivFactory);
 
@@ -93,7 +93,7 @@
 				directionWay: '@'
 			},
 			replace: true,
-			controller: ['$scope', sdivCtrlFactory],
+			controller: 'sdivCtrl',//['$scope', sdivCtrlFactory],
 			compile: function(tElement, tAttrs, $transclude) {
 				/*$transclude(scope, function(sdivs) {
 					element.empty();
@@ -165,8 +165,8 @@
 		};
 	}
 
-	//sdivFactory.$inject = [];
-	function sdivFactory()
+	sdivFactory.$inject = ['$window'];
+	function sdivFactory($window)
 	{
 		return {
 			restrict: 'E',
@@ -244,7 +244,7 @@
 						resize.previous = {};
 					};
 					//wataching resize
-					angular.element(window).on('resize', function() {
+					angular.element($window).on('resize', function() {
 						scope.resize.width = element[0].getBoundingClientRect().width;
 						scope.resize.height = element[0].getBoundingClientRect().height;
 
@@ -260,10 +260,8 @@
 								element.width((1 / resize.sdivsLength * 100) + '%' );
 								break;
 						}
-
-						//console.log('window resize');
 					});
-					angular.element(window).on('mouseup', scope.mouseup);
+					angular.element($window).on('mouseup', scope.mouseup);
 				};
 			}
 			
